@@ -32,7 +32,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.less'],
     alias: {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
@@ -47,8 +47,18 @@ module.exports = {
       {{/lint}}
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        use: [
+          {
+              loader: 'vue-loader',
+              options: vueLoaderConfig
+          },
+          {
+              loader: 'iview-loader',
+              options: {
+                  prefix: false
+              }
+          }
+        ]
       },
       {
         test: /\.js$/,

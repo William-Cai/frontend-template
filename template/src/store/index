@@ -1,0 +1,15 @@
+import Vuex from 'vuex'
+
+const store = new Vuex.Store({
+    modules: {
+        home: {
+            namespaced: true,
+            state: {},
+            getters: {},
+            mutations: {},
+            actions: {}
+        }
+    }
+})
+
+export default store

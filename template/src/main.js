@@ -7,15 +7,29 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+{{#vuex}}
+import store from './store'
+{{/vuex}}
+import iView from 'iview'
+import Axios from 'axios'
+
+import '@/assets/theme.less'
+import '@/assets/main.less'
 
 Vue.config.productionTip = false
+
+// 全局Vue注入
+Vue.prototype.$http = Axios
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   {{#router}}
   router,
-  {{/router}}
+  {{/router}},
+  {{#vuex}}
+  store,
+  {{/vuex}}
   {{#if_eq build "runtime"}}
   render: h => h(App)
   {{/if_eq}}
