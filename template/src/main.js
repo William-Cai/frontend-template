@@ -21,12 +21,14 @@ Vue.config.productionTip = false
 // 全局Vue注入
 Vue.prototype.$http = Axios
 
+Vue.use(iView)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   {{#router}}
   router,
-  {{/router}},
+  {{/router}}
   {{#vuex}}
   store,
   {{/vuex}}
